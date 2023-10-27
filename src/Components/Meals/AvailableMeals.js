@@ -29,15 +29,27 @@ const DUMMY_MEALS = [
   ];
 
   const AvailableMeals = () => {
-    const mealsList = DUMMY_MEALS.map(meal => <MealItem key={meal.id} name={meal.name} description={meal.description} price={meal.price}/>);
+    // the map() function is most commonly used for rendering a list of data to the DOM.
+    const mealsList = DUMMY_MEALS.map((meal) => (
+    <MealItem 
+    key={meal.id} 
+    id={meal.id}
+    name={meal.name} 
+    description={meal.description} 
+    price={meal.price}
+    />
+    ));
 
-    return <section className={classes.meals}> 
+    return (
+    <section className={classes.meals}> 
         <Card>
             <ul>
-            {mealsList}
+            {/* // how dynamically render the list of components in React. */}
+            {mealsList} 
         </ul>
         </Card>
     </section>
+    )
   }
 
   export default AvailableMeals;
